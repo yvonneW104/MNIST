@@ -1,9 +1,12 @@
-# ECE210 Project: Digit classification on MNIST dataset
-
+# UCLA ECE210 Project: Digit classification on MNIST dataset
 
 Tianxue Chen, Lu Ren, Ying Wang
 
 ## Dataset
+- Training image: train-images-idx3-ubyte.gz
+- Training label: train-labels-idx1-ubyte.gz
+- Test image: t10k-images-idx3-ubyte.gz
+- Test label: t10k-labels-idx1-ubyte.gz
 
 ## Scripts
 This projects consists of the following scripts:
@@ -26,4 +29,21 @@ This projects consists of the following scripts:
 - cs231n - This folder includes the fast version implementation of convolution layer. Thanks to Standford CS231n course, we speed up at least 500x for backward pass than our naive convolution layer. The fast convolution implementation depends on a Cython extension; to compile it need to run the following from the cs231n directory:
   ```
   python setup.py build_ext --inplace
+  ```
+
+## Train Model
+- Define the network, construct a Solver instance, and set various options in main.py script. For example,
+  ```
+  model = network.FullyConnectedNet(hidden_dims=[256, 128], weight_scale=0.01)
+  solver = Solver(model, data, num_epochs=10, batch_size=200, update_rule=update_rule,
+                        optim_config={'learning_rate':1e-3},
+                        verbose=True,
+                        print_every= 50
+                        )
+  solver.train()
+  ```
+
+- Then run the following from the project folder:
+  ```
+  python main.py
   ```
