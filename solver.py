@@ -168,11 +168,11 @@ class Solver(object):
             X = X[mask]
             y = y[mask]
 
-        # Compute predictions in batches
         num_batches = N // batch_size
         if N % batch_size != 0:
             num_batches += 1
 
+        y_pred = []
         for i in range(num_batches):
             start = i * batch_size
             end = (i + 1) * batch_size
