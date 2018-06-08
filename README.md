@@ -3,7 +3,9 @@
 
 Tianxue Chen, Lu Ren, Ying Wang
 
-## Overview
+## Dataset
+
+## Scripts
 This projects consists of the following scripts:
 
 - main.py – main function, de
